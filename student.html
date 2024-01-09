@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>practice</title>
+    <style> 
+        input[type=text] {
+          width: 30%;
+          padding: 12px 15px;
+          margin: 8px 0;
+          border:2px;
+          background-color: #abbbb4;
+          text-shadow: 0cap;
+          border-color: black;
+        } 
+        form {
+            border: 2px solid black;
+          width: 30%;
+          padding: 35px 100px;
+          margin: 8px 0;
+          background-color: rgb(106, 172, 194);
+          
+        } 
+        h2{
+            color: rgb(27, 34, 134);
+        }
+        table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+</style>
+
+<script>
+    function popup(){
+        alert("data submited");
+    }
+window.onload=function(){
+    
+if(localStorage){
+console.log("succesfully supported");
+
+document.getElementById("detail").addEventListener("submit",
+ function() {
+    var name1 =document.getElementById('firstname').value;
+    var res = localStorage.setItem('bansi',name1);
+    var res = localStorage.getItem('bansi');
+    console.log(res);
+
+    var name2 =document.getElementById('middlename').value;
+    localStorage.setItem('bansi1',name2);
+    var xyz = localStorage.getItem('bansi1');
+    console.log(xyz);
+
+    var name3 =document.getElementById('lastname').value;
+    localStorage.setItem('bansi2',name3);
+    var abc = localStorage.getItem('bansi2');
+    console.log(abc);
+
+    var name4 =document.getElementById('drop').value;
+    localStorage.setItem('bansi3',name4);
+    var asd = localStorage.getItem('bansi3');
+    console.log(asd);
+});
+}
+else
+{
+    console.log("not supported");
+}
+    function Data(){
+     var cfg = localstorage.clear();
+    }
+
+     function remove(){
+     var nhy = localstorage.remove('firstname');
+     }
+
+    /* function retrive(){
+        for(i=0; i<localStorage.length; i++)
+        {
+            console.log(localstorage.key(i));
+        }
+     }*/
+     var retrive = localStorage.getItem('retriveItem');
+     if (retrive) {
+  console.log(retrive);
+} else {
+  console.log('No data found in local storage.');
+}
+}
+
+</script>
+</head>
+<body>
+    <center>
+    <form id="detail" >  
+  <h2><center>Student Data</center></h2>
+<label> FIRST NAME : </label>         
+<input type="text" name="firstname" placeholder="Enter Fname" id="firstname"/> <br> <br>  
+<label> MIDDLE NAME : </label>     
+<input type="text" name="middlename" placeholder="Enter Mname" id="middlename"/> <br> <br>  
+<label> LAST NAME : </lable>         
+<input type="text" name="lastname" placeholder="Enter Lname" id="lastname"/> <br> <br>  
+
+<label>   
+    COURSE :  
+    </label>   
+    <select id="drop">  
+    <option value="Course">Course</option>  
+    <option value="BCA">B.TECH</option>  
+    <option value="BBA">BSC</option>  
+    <option value="B.Tech">M.TECH</option>  
+    <option value="MBA">MSC</option>  
+    <option value="MCA">BCA</option>  
+    <option value="M.Tech">MCA</option>  
+    </select>   
+    <br><br>
+
+    <button type="submit" onclick="popup()">Submit</button>  
+    <button type="submit" onclick= "data()" > clear data </button> 
+    <button type="submit" onclick= "remove()" > remove </button>  <br><br> 
+    <button type="submit" onclick= "retrive()" > Retrieve data </button>   
+
+    </form>
+</center>
+<br>
+<br>
+
+<table>
+    <tr>
+      <th>First name</th>
+      <th>Middle name</th>
+      <th>Last name</th>
+      <th>Course</th>
+
+    </tr>
+   
+  </table>
+
+
+
+
+</body>
+</html>
